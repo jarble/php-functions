@@ -1,0 +1,29 @@
+defmodule PHP do
+  def strlen(string) do
+    String.length(string)
+  end
+  def explode(separator,string) do
+	String.split(string,separator)
+  end
+  def str_contains(haystack,needle)
+	String.contains?(haystack,needle)
+  end
+  def str_ends_with(haystack,needle)
+	String.ends_with?(haystack,needle)
+  end
+  def strrev(a)
+	String.reverse(a)
+  end
+  def slice(string,offset,length)
+	String.slice(string,offset,length)
+  end
+  def trim(a)
+	String.trim(a)
+  end
+  def strtoupper(a)
+	String.upcase(a)
+  end
+  def strtolower(a)
+	String.downcase(a)
+  end
+end
