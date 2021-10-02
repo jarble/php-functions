@@ -3,16 +3,27 @@ import (
 	"strings"
 )
 
+
+func gettype(v interface{}) string {
+	//to do: check if something is an array
+	switch v.(type) {
+	case int:
+		return "integer"
+	case bool:
+		return "boolean"
+	case string:
+		return "string"
+	default:
+		return "unknown type"
+	}
+}
+
 func strtolower(s string) string {
 	return strings.ToLower(s)
 }
 
 func strtoupper(s string) string {
 	return strings.ToUpper(s)
-}
-
-func explode(s string) string {
-   //to do
 }
 
 func strpos(haystack string,needle string) int {
