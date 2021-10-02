@@ -1,23 +1,34 @@
 import (
 	"fmt"
 	"strings"
+	"reflect"
 )
 
 
-func gettype(v interface{}) string {
-	//to do: check if something is an array
-	switch v.(type) {
-	case int:
-		return "integer"
-	case bool:
-		return "boolean"
-	case string:
-		return "string"
-	default:
-		return "unknown type"
-	}
-}
 
+
+func gettype(v interface{}) string {
+        rt := reflect.TypeOf(v)
+        switch rt.Kind() {
+        case reflect.Slice:
+            return "array";
+        case reflect.Array:
+            return "array";
+        default:
+			switch v.(type) {
+			case int:
+				return "integer"
+			case bool:
+				return "boolean"
+			case string:
+				return "string"
+			case nil:
+				return "NULL"
+			default:
+				return "unknown type"
+			}
+        }
+}
 func strtolower(s string) string {
 	return strings.ToLower(s)
 }
@@ -51,7 +62,6 @@ func array_push[T any](a []T, b ...T) []T {
 	return append(a,b...)
 }
 
-//using generics
-func echo[T any](s T) {
+func echo(s interface{}) {
 	fmt.Print(s)
 }
