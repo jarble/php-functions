@@ -1,11 +1,11 @@
 //declare slices of multiple types like this:
 //     s := []interface{}{1, 2, "apple", true}
 
-
 import (
 	"fmt"
 	"strings"
 	"reflect"
+	"strconv"
 )
 
 func gettype(v interface{}) string {
@@ -75,9 +75,16 @@ func array_pop(s1 *[]interface{}) interface{}{
 	return x
 }
 
-
 func echo(s interface{}) {
 	fmt.Print(s)
+}
+
+func is_string(s interface{}) bool {
+	return gettype(s.(string)) == "string"
+}
+
+func explode(separator interface{}, str interface{}) []string{
+	return strings.Split(str.(string),separator.(string))
 }
 
 func array_keys(mymap map[interface{}]interface{}) []interface{}{
